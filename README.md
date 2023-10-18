@@ -6,7 +6,6 @@ App to get weather forecast from given location.
 
 - [Features](#features)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
