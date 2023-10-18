@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { useForecasts } from '.'
+import { WeatherConditionProps, useForecasts } from '.'
 
 vi.mock('jotai', () => ({
   useAtomValue: () => ({
@@ -78,8 +78,42 @@ describe('useForecasts Hook', () => {
         })
       }
     )
-    test.todo('should return hourly weather forecast for given location')
-    test.todo('should return correct icon for given temperature and condition')
+
+    test('should return hourly weather forecast', () => {
+      const { getHourlyWeatherForecast } = useForecasts()
+      const { timeArray, temperatures, currentHourPosition, nextMidNightDate } = {
+        timeArray: ['2022-10-18T01:00', '2022-10-18T02:00'],
+        temperatures: [12, 13],
+        currentHourPosition: 0,
+        nextMidNightDate: '2022-10-18T02:00',
+      }
+
+      expect(getHourlyWeatherForecast(timeArray, temperatures, currentHourPosition, nextMidNightDate)).toEqual([
+        {
+          hour: '01',
+          icon: '/src/assets/cloudy.svg',
+          temperature: 12,
+        },
+      ])
+    })
+
+    test.each([
+      ['clear-day' as WeatherConditionProps, '/src/assets/day.svg'],
+      ['clear-night' as WeatherConditionProps, '/src/assets/night.svg'],
+      ['rain' as WeatherConditionProps, '/src/assets/rainy-6.svg'],
+      ['snow' as WeatherConditionProps, '/src/assets/snowy-5.svg'],
+      ['sleet' as WeatherConditionProps, '/src/assets/snowy-6.svg'],
+      ['cloudy' as WeatherConditionProps, '/src/assets/cloudy.svg'],
+      ['partly-cloudy-day' as WeatherConditionProps, '/src/assets/cloudy-day-3.svg'],
+      ['partly-cloudy-night' as WeatherConditionProps, '/src/assets/cloudy-night-3.svg'],
+    ])(
+      'should return correct icon if weather condition is "%s"',
+      (conditionText: WeatherConditionProps, expectedIcon) => {
+        const { getWeatherConditionIcon } = useForecasts()
+
+        expect(getWeatherConditionIcon(conditionText)).toEqual(expectedIcon)
+      }
+    )
   })
 
   describe('Second visualization (scroll down)', () => {

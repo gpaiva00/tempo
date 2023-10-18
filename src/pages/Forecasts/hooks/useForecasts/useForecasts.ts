@@ -87,7 +87,6 @@ function useForecasts() {
   function getWeatherForecastForNextDays(dailyWeatherForecast: typeof weatherForecast.daily) {
     const today = new Date().getDate()
 
-     
     return dailyWeatherForecast?.time.map((day, index) => {
       const dayNumber = new Date(day).getDate() + 1
       const icon = getWeatherConditionIcon(
@@ -116,8 +115,12 @@ function useForecasts() {
     }
   }
 
-  function getHourlyWeatherForecast(timeArray: string[], temperatures: number[], currentHourPosition: number) {
-    const nextMidNightDate = getNextMidNight()
+  function getHourlyWeatherForecast(
+    timeArray: string[],
+    temperatures: number[],
+    currentHourPosition: number,
+    nextMidNightDate: string
+  ) {
     const nextMidNightInTimeArray = timeArray.indexOf(nextMidNightDate)
 
     const newTimeArray = [...timeArray].splice(currentHourPosition, nextMidNightInTimeArray)
@@ -235,6 +238,7 @@ function useForecasts() {
     getWeatherForecastForTheDay,
     getGreetings,
     getWeatherConditionIcon,
+    getHourlyWeatherForecast,
     currentLocation,
     weatherForecast,
     isWeatherForecastFetching,
@@ -243,7 +247,8 @@ function useForecasts() {
     hourlyWeatherForecast: getHourlyWeatherForecast(
       weatherForecast?.hourly?.time ?? [],
       weatherForecast?.hourly?.temperature_2m ?? [],
-      currentHourPosition
+      currentHourPosition,
+      getNextMidNight()
     ),
     greetingsText: getGreetings(new Date().getHours()),
     getSunriseAndSunsetHour,
@@ -259,3 +264,4 @@ function useForecasts() {
 }
 
 export { currentLocationAtom, useForecasts }
+export type { WeatherConditionProps }
