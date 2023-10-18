@@ -87,7 +87,7 @@ function useForecasts() {
   function getWeatherForecastForNextDays(dailyWeatherForecast: typeof weatherForecast.daily) {
     const today = new Date().getDate()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     return dailyWeatherForecast?.time.map((day, index) => {
       const dayNumber = new Date(day).getDate() + 1
       const icon = getWeatherConditionIcon(

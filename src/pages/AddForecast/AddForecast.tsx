@@ -1,5 +1,6 @@
 import { CaretCircleLeft, CaretRight, CircleNotch, MagnifyingGlass } from '@phosphor-icons/react'
 import classNames from 'classnames'
+import React from 'react'
 import { useAddForecast } from './hooks/useAddForecast'
 
 /*

@@ -1,4 +1,5 @@
 import { Sun, SunHorizon, Sunglasses, ThermometerHot } from '@phosphor-icons/react'
+import React from 'react'
 
 import classNames from 'classnames'
 import { Card } from './components'
@@ -19,8 +20,6 @@ function Forecasts() {
     uvIndex,
     weatherForecastForNextDays,
     precipitationProbability,
-    isSidebarVisible,
-    toggleSidebar,
     handleGoToAddForecast,
   } = useForecasts()
 
