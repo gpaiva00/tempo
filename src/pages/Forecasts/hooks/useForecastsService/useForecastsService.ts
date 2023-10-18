@@ -45,4 +45,5 @@ function useForecastsService(latitude: number, longitude: number) {
   }
 }
 
-export { WeatherForecastProps, useForecastsService }
+export { useForecastsService }
+export type { WeatherForecastProps }
