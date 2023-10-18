@@ -28,7 +28,7 @@ Feel free to help me contributing with some fix, improvements or features:
 4. Push to the branch: `git push origin feature/new-feature`
 5. Open a pull request
 
-💜 Gostou? Retribua com um café ou chá!
+💜 Did you like it? Buy me a coffee or tea!
 <br />
 <br/>
 <a href="https://www.buymeacoffee.com/gpaiva" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
