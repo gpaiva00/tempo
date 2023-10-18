@@ -1,11 +1,30 @@
 # Tempo
 
-App to get weather forecast from given location.
+<img src="./public/demo.png" width="100%"/>
+
+<br />
+
+> App to get weather forecast from given location.
 
 ## Table of Contents
 
+- [Installation](#installation)
 - [Features](#features)
 - [Contributing](#contributing)
+
+## Installation
+
+After you cloned this repo, install dependencies:
+
+```
+  yarn
+```
+
+And finally, run the project:
+
+```
+  yarn dev
+```
 
 ## Features
 
