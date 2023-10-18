@@ -26,3 +26,4 @@ function useSearchAddressService(location: string, enabled: boolean) {
 }
 
 export { useSearchAddressService }
+export type { SearchAddressProps }
